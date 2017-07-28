@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+<script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="./js/sockjs.min.js"></script>
+<script type="text/javascript" src="./js/stomp.min.js"></script>
+</head>
+<script type="text/javascript">
+$(function(){
+	 var stompClient;
+	 connect();
+});
+
+function connect() {
+    var socket = new SockJS('/endpointTest');
+    stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/getMessage', function (response) {
+        	$('#showMsg').append(response.body+'<br>');
+        });
+    });
+}
+
+function sendMsg() {
+	stompClient.send('/broadcast', {}, JSON.stringify({'message': $('#msgInp').val()}));
+}
+</script>
+<body>
+<p>websocket client</p>
+<p><input type='text' id='msgInp'><input type='button' value='send message' onclick='sendMsg()'></p>
+<div id='showMsg'></div>
+</body>
+</html>

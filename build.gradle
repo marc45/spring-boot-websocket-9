@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        mavenLocal()
+		maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'spring-boot-websocket'
+    version =  '0.1.0'
+}
+bootRun {
+    addResources = false
+}
+
+repositories {
+	mavenLocal()
+	maven{url 'http://maven.aliyun.com/nexus/content/groups/public'}
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-websocket")
+        
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
