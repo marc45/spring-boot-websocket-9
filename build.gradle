@@ -15,9 +15,6 @@ jar {
     baseName = 'spring-boot-websocket'
     version =  '0.1.0'
 }
-bootRun {
-    addResources = false
-}
 
 repositories {
 	mavenLocal()

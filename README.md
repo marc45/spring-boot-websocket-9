@@ -1,6 +1,6 @@
 Spring Boot with WebSocket example
 
 Run
->gradle build  
-gradle bootRun  
+>gradle bootRun
+  
 URL http://localhost:8080
