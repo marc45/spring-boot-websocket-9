@@ -20,8 +20,8 @@ public class WebSocketController {
 	}
 
 	/**
-	 * another way to send message use SimpMessagingTemplate to broadcast
-	 * message
+	 * another way to send message 
+	 * use SimpMessagingTemplate to broadcast message
 	 * 
 	 * @param message
 	 */
